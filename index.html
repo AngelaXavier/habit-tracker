@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bloom - Rastreador de hábitos</title>
+    <link rel="icon" href="./img/icons8-emoji-de-lótus-48.png" type="image/x-icon">
+    <link href="https://fonts.cdnfonts.com/css/kindergarten" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/inicio.css">
+    <link rel="stylesheet" href="./css/habitos.css">
+    <link rel="stylesheet" href="./css/progresso.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <aside class="sidebar">
+            <div class="marca">
+                <div class="marca-logo"><img src="./img/icons8-florescer-85.png" alt="Icone de flores">
+                </div>
+                <div class="texto-marca">
+                    <strong>Bloom</strong>
+                    <span>Seu dia a dia, florescendo ! </span>
+                </div>
+            </div>
+
+            <nav class="side-nav">
+                <button class="side-link active" data-view="inicio"><span class="ic"><img
+                            src="./img/icons8-chalé-64.png" alt="Icone de uma casa"></span>Início</button>
+                <button class="side-link" data-view="habitos">
+                    <span class="ic">
+                        <img src="./img/icons8-caixa-de-seleção-marcada-50.png" alt="Icone seleção marcada">
+                    </span>
+                    <span>Hábitos</span>
+                </button>
+                <button class="side-link" data-view="progresso">
+                    <span class="ic">
+                        <img src="./img/icons8-progresso-24.png" alt="Icone progresso">
+                    </span>
+                    <span>Progresso</span>
+                </button>
+            </nav>
+            <div class="side-streak">
+                <div class="side-streak-top"><span class="side-streask-ic"><img src="./img/icons8-gás-50.png"
+                            alt="Icone chama">Sua sequência </span></div>
+                <div class="side-streak-num" id="sideStreakNum">0 dias</div>
+                <p id="sideStreakMsg">Crie hábitos para ver sua sequência crescer!</p>
+            </div>
+        </aside>
+
+        <main class="content">
+            <section class="view active" id="view-inicio">
+                <div class="topbar">
+                    <div class="boas-vindas">
+                        <h1 class="apresentacao" id="apresentacao">
+                            Olá!
+                        </h1>
+                        <p class="subApresentacao" id="subApresentacao">
+                            Aqui está seu resumo do dia.
+                        </p>
+                    </div>
+                    <div class="acoes-topo">
+                        <div class="data-atual">
+                            <span id="dataAtual">
+                                Sexta-feira 11 de setembro
+                            </span>
+                        </div>
+                        <button class="btn-add-habito" id="btn-add-habito">
+                            + Adicionar hábito
+                        </button>
+                    </div>
+                </div>
+                <div class="week-row" id="sequenciaSemana">
+                    <div class="dia">
+                        <span>DOM</span>
+                        <strong>6</strong>
+                    </div>
+                    <div class="dia">
+                        <span>SEG</span>
+                        <strong>7</strong>
+                    </div>
+
+                    <div class="dia">
+                        <span>TER</span>
+                        <strong>8</strong>
+                    </div>
+
+                    <div class="dia">
+                        <span>QUA</span>
+                        <strong>9</strong>
+                    </div>
+
+                    <div class="dia">
+                        <span>QUI</span>
+                        <strong>10</strong>
+                    </div>
+
+                    <div class="dia active">
+                        <span>SEX</span>
+                        <strong>11</strong>
+                    </div>
+
+                    <div class="dia">
+                        <span>SÁB</span>
+                        <strong>12</strong>
+                    </div>
+                </div>
+
+                <div class="stats-row">
+                    <div class="stat-cardAccent">
+                        <div class="label">
+                            Progreso do dia
+                        </div>
+                        <div class="value" id="progressoDia">0%
+                        </div>
+                        <div class="progress-bar">
+                            <div id="progressoDiaBar" style="width: 0%;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="label">
+                            Concluídos
+                        </div>
+                        <div class="value" id="habitosConcluidos">
+                            0/0
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="label">
+                            Sequência atual
+                        </div>
+                        <div class="value">
+                            <img src="./img/icons8-gás-50.png" alt="Sequencia">
+                            <span id="sequenciaAtual">0 dias
+                            </span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="label">
+                            Maior sequência
+                        </div>
+                        <div class="value">
+                            <img src="./img/icons8-caixa-de-seleção-marcada-50.png" alt="Maior sequencia">
+                            <span id="maiorSequencia">0 dias
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="grade-painel">
+                    <div class="painel-habitos">
+                        <div class="painel-titulo">
+                            <h3 id="tituloListaHabitos">Hábitos de hoje</h3>
+                            <span id="dicaListaHabitos">0 de 0 concluídos</span>
+                        </div>
+                        <div class="lista-habitos" id="listaHabitosHoje">
+                            <div class="lista-vazia" id="listaVazia" hidden>
+                                <span><img src="./img/icons8-emoji-de-lótus-48.png" alt=""></span>
+                                <p>Nenhum hábito por aqui ainda</p>
+                                <button class="btn-add-habito" id="btn-criar-primeiro">
+                                    + Criar meu primeiro hábito
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+            </section>
+
+            <section class="view" id="view-habitos">
+                <div class="topbar">
+                    <div class="boas-vindas">
+                        <h1 class="apresentacao">Hábitos</h1>
+                        <p class="subApresentacao">Pequenos passos, grandes resultados.</p>
+                    </div>
+                    <div class="acoes-topo">
+                        <button class="btn-add-habito" id="btn-add-habito-2">+ Novo hábito</button>
+                    </div>
+                </div>
+
+                <div class="stats-row-hab">
+                    <div class="stat-hab">
+                        <span class="stat-hab-ico"><img src="./img/icons8-calendário-50.png" alt=""></span>
+                        <div>
+                            <span class="stat-hab-label">Total de hábitos</span>
+                            <strong id="habTotalHabitos">0</strong>
+                        </div>
+                    </div>
+                    <div class="stat-hab">
+                        <span class="stat-hab-ico"><img src="./img/icons8-caixa-de-seleção-marcada-50.png"
+                                alt=""></span>
+                        <div>
+                            <span class="stat-hab-label">Concluídos hoje</span>
+                            <strong id="habConcluidosHoje">0/0</strong>
+                        </div>
+                    </div>
+                    <div class="stat-hab">
+                        <span class="stat-hab-ico"><img src="./img/icons8-gás-50.png" alt=""></span>
+                        <div>
+                            <span class="stat-hab-label">Sequência atual</span>
+                            <strong id="habSequenciaAtual">0 dias</strong>
+                        </div>
+                    </div>
+                    <div class="stat-hab">
+                        <span class="stat-hab-ico"><img src="./img/icons8-troféu-30 (1).png" alt=""></span>
+                        <div>
+                            <span class="stat-hab-label">Melhor sequência</span>
+                            <strong id="habMelhorSequencia">0 dias</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="habit-list" id="habitListCompleto"></div>
+                <div class="lista-vazia" id="habitCompletoEmpty" hidden>
+                    <span><img src="./img/icons8-emoji-de-lótus-48.png" alt=""></span>
+                    <p>Você ainda não criou nenhum hábito.</p>
+                    <button class="btn-add-habito" id="btn-add-habito-3">Criar meu primeiro hábito</button>
+                </div>
+
+            </section>
+
+            <section class="view" id="view-progresso">
+                <div class="topbar">
+                    <div class="boas-vindas">
+                        <h1 class="apresentacao">Progresso</h1>
+                        <p class="subApresentacao">Acompanhe sua evolução.</p>
+                    </div>
+                </div>
+
+                <div class="prog-grid">
+                    <div class="panel donut-panel">
+                        <div class="donut-wrap">
+                            <svg viewBox="0 0 120 120" class="donut-ring">
+                                <circle cx="60" cy="60" r="52" class="donut-bg"></circle>
+                                <circle cx="60" cy="60" r="52" class="donut-fg" id="progDonutMes"></circle>
+                            </svg>
+                            <div class="donut-label">
+                                <strong id="progPctMes">0%</strong>
+                            </div>
+                        </div>
+                        <div class="donut-info">
+                            <span class="stat-hab-label">Meta do mês</span>
+                            <strong id="progMetaMes">0/90 hábitos</strong>
+                        </div>
+                    </div>
+
+                    <div class="panel list-panel">
+                        <div class="list-panel-row">
+                            <span class="stat-hab-ico"><img src="./img/icons8-calendário-50.png" alt=""></span>
+                            <div>
+                                <span class="stat-hab-label">Dias consecutivos</span>
+                                <strong id="progDiasConsecutivos">0 dias</strong>
+                            </div>
+                        </div>
+                        <div class="list-panel-row">
+                            <span class="stat-hab-ico"><img src="./img/icons8-caixa-de-seleção-marcada-50.png"
+                                    alt=""></span>
+                            <div>
+                                <span class="stat-hab-label">Hábitos concluídos</span>
+                                <strong id="progHabitosConcluidos">0</strong>
+                            </div>
+                        </div>
+                        <div class="list-panel-row">
+                            <span class="stat-hab-ico"><img src="./img/icons8-opened-folder-50.png" alt=""></span>
+                            <div>
+                                <span class="stat-hab-label">Total de hábitos</span>
+                                <strong id="progTotalHabitos">0</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="prog-grid">
+                    <div class="panel">
+                        <div class="section-title">
+                            <h2>Evolução semanal</h2>
+                        </div>
+                        <div class="week-chart" id="progGraficoSemana">
+                            <div class="barra-dia">
+                                <div class="barra" style="height: 5px;"></div>
+                                <span>SEG</span>
+                                <strong>0</strong>
+                            </div>
+                            <div class="barra-dia">
+                                <div class="barra" style="height: 5px;"></div>
+                                <span>TER</span>
+                                <strong>0</strong>
+                            </div>
+                            <div class="barra-dia">
+                                <div class="barra" style="height: 5px;"></div>
+                                <span>QUA</span>
+                                <strong>0</strong>
+                            </div>
+                            <div class="barra-dia">
+                                <div class="barra" style="height: 5px;"></div>
+                                <span>QUI</span>
+                                <strong>0</strong>
+                            </div>
+                            <div class="barra-dia">
+                                <div class="barra" style="height: 5px;"></div>
+                                <span>SEX</span>
+                                <strong>0</strong>
+                            </div>
+                            <div class="barra-dia">
+                                <div class="barra" style="height: 5px;"></div>
+                                <span>SÁB</span>
+                                <strong>0</strong>
+                            </div>
+                            <div class="barra-dia">
+                                <div class="barra" style="height: 5px;"></div>
+                                <span>DOM</span>
+                                <strong>0</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel calendario-panel">
+
+                        <div class="calendario-topo">
+
+                            <h2>Meu calendário</h2>
+
+                            <div class="calendario-mes">
+                                <button>‹</button>
+                                <strong>Setembro 2026</strong>
+                                <button>›</button>
+                            </div>
+
+                        </div>
+
+                        <div class="calendario-dias-semana">
+                            <span>SEG</span>
+                            <span>TER</span>
+                            <span>QUA</span>
+                            <span>QUI</span>
+                            <span>SEX</span>
+                            <span>SÁB</span>
+                            <span>DOM</span>
+                        </div>
+
+                        <div class="calendario-dias" id="calendarioDias"></div>
+
+                    </div>
+                </div>
+    </div>
+
+    <div class="message-card">
+        <span class="message-ico"><img src="./img/icons8-emoji-de-lótus-48.png" alt=""></span>
+        <div>
+            <span class="message-tag" id="progMensagemTag">Você já está construindo uma versão mais
+                forte de você!</span>
+            <p>Cada hábito é um passo em direção aos seus sonhos. </p>
+        </div>
+    </div>
+    </section>
+    </main>
+    <script src="./js/script.js"></script>
+    <script src="./js/inicio.js"></script>
+    <script src="./js/habitos.js"></script>
+    <script src="./js/progresso.js"></script>
+
+</body>
+
+</html>
