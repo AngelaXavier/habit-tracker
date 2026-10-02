@@ -21,11 +21,6 @@
     align-items: start;
 }
 
-.prog-grid:nth-of-type(2) .panel:first-child,
-.category-panel {
-    min-height: 220px;
-}
-
 
 .panel {
     background: #fff;
@@ -178,16 +173,15 @@
     height: 150px;
     display: flex;
     align-items: flex-end;
-    justify-content: space-around;
-    gap: 10px;
-    padding: 10px 15px 28px;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 10px 10px 28px;
     border-bottom: 1px solid #F5DDE5;
     box-sizing: border-box;
 }
 
-
 .barra-dia {
-    width: 35px;
+    flex: 1;
     height: 125px;
     display: flex;
     flex-direction: column;
@@ -346,4 +340,18 @@
 
 .calendario-dias .dia-vazio {
     visibility: hidden;
+}
+
+#view-progresso .prog-grid {
+    align-items: stretch;
+}
+
+#view-progresso .prog-grid .panel {
+    height: 100%;
+    box-sizing: border-box;
+}
+
+#view-progresso .prog-grid .week-chart {
+    height: 180px;
+    box-sizing: border-box;
 }
