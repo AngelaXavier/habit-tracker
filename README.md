@@ -2,7 +2,9 @@
 
 <h2> Descrição do projeto</h2>
 
-<h5>  Projeto em desenvolvimento para a disciplina Programação Web 1 do curso Análise e Desenvolvimento de Sistemas. O Bloom é um site de rastreamento de hábitos.
+<h5>  Projeto em desenvolvimento para a disciplina Programação Web 1 do curso Análise e Desenvolvimento de Sistemas. 
+  <br> 
+  O Bloom é um site de rastreamento de hábitos.
 <br>
   Ele vai permitir que o usuário consiga acessar sua rotina, adicionar hábitos, consulta-los e verificar seu próprio progresso.
 </h5>
